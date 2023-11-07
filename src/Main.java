@@ -10,10 +10,28 @@ public class Main {
         try {
             Scanner scanner = new Scanner(System.in);
 
-            System.out.print("Введіть кількість рядків матриці: ");
-            int rows = scanner.nextInt();
-            System.out.print("Введіть кількість стовпців матриці: ");
-            int cols = scanner.nextInt();
+            int rows = 0;
+            int cols = 0;
+
+            while (rows <= 0) {
+                System.out.print("Введіть кількість рядків матриці (невідʼємне число): ");
+                if (scanner.hasNextInt()) {
+                    rows = scanner.nextInt();
+                } else {
+                    System.out.println("Некоректний ввід. Введіть ціле невідʼємне число.");
+                    scanner.next();
+                }
+            }
+
+            while (cols <= 0) {
+                System.out.print("Введіть кількість стовпців матриці (невідʼємне число): ");
+                if (scanner.hasNextInt()) {
+                    cols = scanner.nextInt();
+                } else {
+                    System.out.println("Некоректний ввід. Введіть ціле невідʼємне число.");
+                    scanner.next();
+                }
+            }
 
             Matrix A = new Matrix(rows, cols);
             Matrix B = new Matrix(rows, cols);
